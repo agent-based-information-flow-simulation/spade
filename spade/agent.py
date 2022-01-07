@@ -384,9 +384,9 @@ class Agent(object):
         for behaviour in (x for x in self.behaviours if x.match(msg)):
             futures.append(self.submit(behaviour.enqueue(msg)))
             logger.debug(f"Message enqueued to behaviour: {behaviour}")
-            self.traces.append(msg, category=str(behaviour))
+            # self.traces.append(msg, category=str(behaviour))
             matched = True
         if not matched:
             logger.warning(f"No behaviour matched for message: {msg}")
-            self.traces.append(msg)
+            # self.traces.append(msg)
         return futures
