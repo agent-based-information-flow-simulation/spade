@@ -344,7 +344,7 @@ class CyclicBehaviour(object, metaclass=ABCMeta):
             logger.debug(f"Adding agent's jid as sender to message: {msg}")
         await self.agent.container.send(msg, self)
         msg.sent = True
-        self.agent.traces.append(msg, category=str(self))
+        # self.agent.traces.append(msg, category=str(self))
 
     async def _xmpp_send(self, msg: Message) -> None:
         aioxmpp_msg = msg.prepare()
